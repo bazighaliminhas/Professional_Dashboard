@@ -1,0 +1,109 @@
+.products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.mat-progress-spinner {
+  margin: 50px auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Ensures the full image is visible */
+    }
+  }
+
+  .mat-card-header {
+    padding: 10px;
+    min-height: 60px;
+  }
+
+  .mat-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+
+  mat-card-content {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    color: #555;
+
+    .price {
+      font-weight: bold;
+      color: #000;
+      margin-top: 10px;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f8f8f8;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+
+.view-cart-container {
+  margin-top: 20px;
+  text-align: right; /* Align the button to the right */
+}

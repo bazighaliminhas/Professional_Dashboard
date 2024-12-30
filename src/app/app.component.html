@@ -1,0 +1,7 @@
+<ng-container *ngIf="isLoginPage; else dashboardTemplate">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #dashboardTemplate>
+  <app-dashboard></app-dashboard>
+</ng-template>

@@ -1,0 +1,46 @@
+<div class="container">
+  <!-- Left side: Image section (6 columns) -->
+  <div class="left-side">
+    <img src="../../../assets/images/login/login.webp" alt="Login Background" />
+  </div>
+
+  <!-- Right side: Login form section (6 columns) -->
+  <div class="right-side">
+    <mat-card class="login-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="login()">
+          <!-- Username input -->
+          <mat-form-field class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="username" name="username" required>
+          </mat-form-field>
+
+          <!-- Password input with visibility toggle -->
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input 
+              matInput 
+              [(ngModel)]="password" 
+              name="password" 
+              [type]="passwordVisible ? 'text' : 'password'" 
+              required
+            >
+            <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+              <mat-icon>{{ passwordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <!-- Login button -->
+          <div class="login-actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!username || !password">
+              Login
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

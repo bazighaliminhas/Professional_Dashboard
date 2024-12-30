@@ -1,0 +1,106 @@
+/* Full height container for the layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars on the page */
+}
+
+/* Main container with 12 column grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12-column grid */
+  height: 100vh; /* Full viewport height */
+  position: relative; /* Required for absolute positioning of login card */
+  overflow: hidden; /* Prevent grid container from overflowing */
+}
+
+/* Left side: Image background section */
+.left-side {
+  grid-column: span 6; /* Takes up 6 columns */
+  height: 100vh; /* Ensure the height covers full viewport */
+  position: relative; /* Make sure the image is positioned relative to this div */
+  background-image: url('../../../assets/images/login/login.webp'); /* Background image */
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repetition of the image */
+}
+
+/* Right side: Login form section */
+.right-side {
+  grid-column: span 6; /* Takes up the other 6 columns */
+  display: flex;
+  justify-content: center; /* Centers the login card horizontally */
+  align-items: flex-start; /* Align to the top */
+  height: 100%; /* Full height */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto; /* Enable scrolling if content overflows */
+}
+
+/* Login card style */
+.login-card {
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Set max-width for the card */
+  box-sizing: border-box; /* Ensures padding is accounted for inside the card */
+  margin-top: 50px; /* Push the card up */
+}
+
+/* Make form fields full-width */
+.full-width {
+  width: 100%;
+}
+
+/* Styling for the action buttons */
+.login-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Form fields margin */
+mat-form-field {
+  margin-bottom: 15px;
+}
+
+/* Button full width */
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+mat-icon {
+  font-size: 24px;
+  color: #3f51b5; /* Material Design Blue */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      grid-template-columns: 1fr; /* Stack the columns */
+  }
+
+  .left-side {
+      height: 50vh; /* Limit image height on smaller screens */
+  }
+
+  /* Right side now allows scrolling */
+  .right-side {
+      height: 100%; /* Ensures the right side takes full height */
+      padding: 10px; /* Add padding to avoid squeezing */
+      overflow-y: auto; /* Enable vertical scroll */
+      justify-content: flex-start; /* Align content to the top */
+      align-items: center; /* Center the form horizontally */
+  }
+
+  .login-card {
+      width: 90%;
+      max-width: 350px; /* Reduce max-width for smaller screens */
+      margin: 30px auto; /* Push up the card by setting margin-top */
+  }
+}
